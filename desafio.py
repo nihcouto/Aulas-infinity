@@ -9,6 +9,10 @@ print ('- Para sair, digite SAIR ao final da partida.\n')
 #criação de lista para utilização do random
 opc_pc = ['pedra' , 'papel' , 'tesoura']
 
+cont_partida = 0
+cont_vitoria = 0
+cont_empate = 0
+
 #menu de seleção para o usuário
 print ('Para iniciar, escolha uma opção abaixo: \n')
 while True:
@@ -23,6 +27,9 @@ while True:
     if escolha_usuario.lower() == 'sair':
         print ('Volte sempre!')
         break  
+
+    #INCREMENTANDO CONTADOR DE PARTIDAS
+    cont_partida += 1 #o contador foi imputado apos a condição que determina saída, pois caso não seja acionada, ele entenderá que é uma partida a mais
 
     #VERIFICA A CONDIÇÃO ESCOLHIDA PELO USUÁRIO E VALIDA
     if escolha_usuario == '1' or escolha_usuario.lower() == 'pedra':
@@ -43,10 +50,13 @@ while True:
     #VERIFICANDO SE O USUÁRIO GANHOU
     if (escolha_usuario == '1' or escolha_usuario.lower() == 'pedra') and opc_pc_selec == 'tesoura':
         print ('O usuário venceu essa partida!\n')
+        cont_vitoria += 1
     elif (escolha_usuario == '2' or escolha_usuario.lower() == 'papel') and opc_pc_selec == 'pedra':
         print ('O usuário venceu essa partida!\n')
+        cont_vitoria += 1
     elif (escolha_usuario == '3' or escolha_usuario.lower() == 'tesoura') and opc_pc_selec == 'papel':
         print ('O usuário venceu essa partida!\n')
+        cont_vitoria += 1
 
     #VERIFICANDO SE O COMPUTADOR GANHOU
     if opc_pc_selec == 'pedra' and (escolha_usuario == '3' or escolha_usuario.lower() == 'tesoura'):
@@ -58,4 +68,7 @@ while True:
     #DECLARANDO EMPATE
     else:
         print ('Houve em empate nessa rodada! \n')
+        cont_empate += 1
+
+#MOSTRANDO PLACAR
 
